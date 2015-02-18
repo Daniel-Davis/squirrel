@@ -25,16 +25,16 @@ function hasEvent(event, entry) {
   return entry.events.indexOf(event) != -1;
 }
 
-function tableFor(event, journal) {
-  var table = [0, 0, 0, 0];
-  for (var i = 0; i < journal.length; i++) {
-    var entry = journal[i], index = 0;
-    if (hasEvent(event, entry)) index += 1;
-    if (entry.squirrel) index += 2;
-    table[index] += 1;
-  }
-  return table;
-}
+function tableFor(event, journal) { // function to create a table
+  var table = [0, 0, 0, 0]; // creates an array with 4 num variables
+  for (var i = 0; i < journal.length; i++) { // for looping thorugh the journal
+    var entry = journal[i], index = 0; // creates a variable to store the events of said journal date
+    if (hasEvent(event, entry)) index += 1; // if the event is there(calls a function to test) then go to next one
+    if (entry.squirrel) index += 2; // if the entry
+    table[index] += 1; // table increments the index by one
+  } // end of for loop
+  return table; // returns the table
+} // end of function
 
 function phi(table) {
   return (table[3] * table[0] - table[2] * table[1]) /
